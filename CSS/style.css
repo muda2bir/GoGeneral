@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Navigation Bar Construction */
+
+.container {
+  /* width: 95%; */
+  margin: 0 auto;
+  position: sticky;
+  top: 0;
+  left: 0;
+  /* background: #a9dce3; */
+}
+
+.header {
+  /* position: sticky;
+  top: 0;
+  left: 0; */
+  padding: 0.5em;
+  background: #fff;
+}
+
+.navbar {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  /* border-radius: 10px 10px 10px 10px; */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  text-align: center;
+  background: whitesmoke;
+  clip-path: circle(0px at top right);
+  transition: clip-path ease-in-out 700ms;
+}
+
+/* .navbar--open javascript part */
+
+.navbar--open {
+  clip-path: circle(215% at top right);
+}
+
+.navbar ul {
+  list-style: none;
+}
+
+.navbar li {
+  font-size: 1em;
+  border-bottom: 1px solid #041c32;
+}
+
+.navbar li:last-child {
+  border-bottom: none;
+}
+
+.navbar a {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #041c32;
+  display: block;
+  text-decoration: none;
+  padding: 1.5em 3em 1.5em 3em;
+}
+
+.navbar a:focus {
+  background: #041c32;
+  color: #a9dce3;
+}
+
+.logo {
+  color: #041c32;
+  font-size: 2em;
+}
+
+.logo span {
+  font-weight: 400;
+}
+
+.menu-toggle {
+  padding: 1em 0.8em;
+  position: absolute;
+  top: 0.5em;
+  right: 0.8em;
+  cursor: pointer;
+}
+
+.hamburger,
+.hamburger::after,
+.hamburger::before {
+  content: "";
+  display: block;
+  background: #041c32;
+  height: 3px;
+  width: 1.75em;
+  border-radius: 3px;
+  transition: all ease-in-out 700ms;
+}
+
+.hamburger::before {
+  transform: translateY(-6px);
+}
+
+.hamburger::after {
+  transform: translateY(3px);
+}
+
+/* hamburger javascript part */
+
+.open .hamburger {
+  transform: rotate(45deg);
+}
+
+.open .hamburger::after {
+  transform: translateY(-3px) rotate(-90deg);
+}
+
+.open .hamburger::before {
+  opacity: 0;
+}
+
+.main__content {
+  height: 200vh;
+}
+
+/* media query for the navigation bar */
+
+@media (min-width: 850px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .navbar {
+    position: relative;
+    height: auto;
+    background: transparent;
+    clip-path: initial;
+    box-shadow: none;
+  }
+
+  .navbar li {
+    display: inline-block;
+    border: none;
+  }
+
+  .navbar a {
+    font-weight: 500;
+    padding: 0;
+    margin-right: 3em;
+    position: relative;
+  }
+
+  .navbar a::after {
+    content: "";
+    display: block;
+    height: 3px;
+    background: #041c32;
+    position: absolute;
+    top: 1.4em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+
+  .navbar a:hover::after {
+    transform: scale(1, 1);
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 2.5em;
+  }
+}
